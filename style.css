@@ -3,12 +3,12 @@
 	Author: Arne Maier
 	Author URL: http://www.bandbreed.com/
 	Date: february 2012
-	Version: 2.1
+	Version: 2.2
 */
 
 /* @group Meta */
 /* @group Normalize */
-article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
 	display: block;
 	}
 audio, canvas, video {
@@ -18,14 +18,21 @@ audio, canvas, video {
 	}
 audio:not([controls]) {
 	display: none;
+    height: 0;
 	}
 [hidden] {
 	display: none;
 	}
-* {
+*,
+*:before,
+*:after {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 	}
 html {
 	background: #fff;
@@ -37,18 +44,17 @@ html {
 	-ms-text-size-adjust: 100%;
 	}
 html, button, input, select, textarea {
-	font-family: "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
-	color: #3e3e3e;
+	font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif;
+	color: #333;
 	}
 body {	
 	cursor: default;
-	font-size: 14px;
-	line-height: 1.4;
 	margin: 0;
 	min-width: 960px;
 	text-align: center;
 	text-rendering: optimizeLegibility;
-	
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
 	-moz-font-feature-settings: "liga=1";
 	-ms-font-feature-settings: "liga" 1;
 	-moz-font-feature-settings: "kern=1";
@@ -88,12 +94,6 @@ footer {
 /* @end */
 
 /* @group Selectable */
-* {
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	}
 h1, h2, h3, h4, h5, h6, p, a,
 blockquote, pre, abbr, acronym,
 address, big, cite, code, del, ins, samp,
@@ -114,7 +114,9 @@ button, input, select, textarea {
 	color: #fff;
 	text-shadow: none;
 	}
-:focus {
+:focus,
+:active,
+:hover {
 	outline: none;
 	}
 /* @end */
@@ -149,20 +151,35 @@ button, input, select, textarea {
 /* @group Typography */
 
 h1,h2,h3,h4,h5,h6 {
-	font: 20px/1.4 custom, sans-serif;
+	font-family: custom, sans-serif;
 	}
-h1 {font-size: 36px;}
-h2 {font-size: 30px;}
-h3 {font-size: 24px;}
-h4 {font-size: 20px;}
-h5 {font-size: 20px;}
-h6 {font-size: 16px;}
-
-h1,h2,h3,h4,h5,h6 {
-	margin: 0 0 20px;
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
 	}
-p {
-	margin: 0 0 15px;
+h2 {
+    font-size: 1.5em;
+    margin: 0.83em 0;
+	}
+h3 {
+    font-size: 1.17em;
+    margin: 1em 0;
+	}
+h4 {
+    font-size: 1em;
+    margin: 1.33em 0;
+	}
+h5 {
+    font-size: 0.83em;
+    margin: 1.67em 0;
+	}
+h6 {
+    font-size: 0.75em;
+    margin: 2.33em 0;
+	}
+p,
+pre {
+    margin: 1em 0;
 	}
 /* @end */
 
@@ -199,11 +216,11 @@ svg:not(:root) {
 /* @group Lists */
 ul, ol {
 	list-style-position: inside;
-	margin: 0 0 1em;
-	padding: 0 0 1em;
+    margin: 1em 0;
+    padding: 0 0 0 20px;
 	}
 dd {
-	margin: 0 0 0 40px;
+	margin: 0 0 0 20px;
 	}
 nav ul,
 nav ol,
@@ -211,8 +228,6 @@ ul.clean,
 ol.clean {
 	list-style: none;
 	list-style-image: none;
-	margin: 0;
-	padding: 0; 
 	}
 /* @end */
 
